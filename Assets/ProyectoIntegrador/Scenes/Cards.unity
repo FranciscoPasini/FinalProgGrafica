@@ -363,7 +363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7962050744589429493, guid: 92c1d7f5b849f9f4aadb1eecb559e75e, type: 3}
       propertyPath: previousScene
-      value: Nivel 1
+      value: Portales
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
