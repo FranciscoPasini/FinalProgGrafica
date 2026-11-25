@@ -2,27 +2,19 @@ using UnityEngine;
 
 namespace Portals
 {
-    /// <summary>
-    /// Matemática de portales enlazados, sin estado (testeable sin escena).
-    /// Convención: el frente visible de un portal es su -forward (el quad mira hacia -Z).
-    /// </summary>
+    // Cuentas de los portales. El frente visible de un portal es su -forward.
     public static class PortalMath
     {
         static readonly Matrix4x4 HalfTurn = Matrix4x4.Rotate(Quaternion.Euler(0f, 180f, 0f));
 
-        /// <summary>
-        /// Dónde ubicar la cámara virtual: la pose del observador relativa al portal de origen,
-        /// re-expresada desde el portal de destino.
-        /// halfTurn = true: portal clásico (se sale por el frente del destino, girado media vuelta).
-        /// halfTurn = false: ventana (se ve lo que hay detrás del portal de destino).
-        /// </summary>
+        // Pose de la cámara virtual: relativa al portal de origen, girada 180° (modo clásico) y llevada al destino.
         public static Matrix4x4 VirtualCameraMatrix(Matrix4x4 viewerLocalToWorld, Matrix4x4 fromPortal, Matrix4x4 toPortal, bool halfTurn = true)
         {
             Matrix4x4 relative = fromPortal.inverse * viewerLocalToWorld;
             return halfTurn ? toPortal * HalfTurn * relative : toPortal * relative;
         }
 
-        /// <summary>Plano (normal, distancia) en espacio de cámara, para CalculateObliqueMatrix.</summary>
+        // Plano (normal, distancia) en espacio de cámara, para el recorte oblicuo.
         public static Vector4 CameraSpacePlane(Matrix4x4 worldToCamera, Vector3 planePos, Vector3 planeNormal, float offset)
         {
             Vector3 p = worldToCamera.MultiplyPoint(planePos + planeNormal * offset);
@@ -30,7 +22,6 @@ namespace Portals
             return new Vector4(n.x, n.y, n.z, -Vector3.Dot(p, n));
         }
 
-        /// <summary>True si el observador está del lado visible del portal.</summary>
         public static bool IsViewerInFront(Vector3 viewerPos, Vector3 portalPos, Vector3 portalForward)
         {
             return Vector3.Dot(viewerPos - portalPos, -portalForward) > 0f;

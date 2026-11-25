@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Portals
 {
-    /// <summary>Abre y cierra un portal animando la propiedad _Opening del shader (sin tocar el material compartido).</summary>
+    // Abre y cierra el portal animando _Opening (y la hoja de la puerta, si tiene).
     [DisallowMultipleComponent]
     public class PortalOpening : MonoBehaviour
     {
@@ -23,7 +23,6 @@ namespace Portals
         bool m_open = true;
         MaterialPropertyBlock m_block;
 
-        /// <summary>Apertura actual 0..1 (con suavizado).</summary>
         public float Current => Mathf.SmoothStep(0f, 1f, m_linear);
         public bool IsOpen => m_open;
         Renderer Surface => surface != null ? surface : (surface = GetComponent<Renderer>());
@@ -32,7 +31,6 @@ namespace Portals
 
         public void SetOpen(bool open) => m_open = open;
 
-        /// <summary>Hace que la hoja de la puerta acompañe la apertura del portal.</summary>
         public void ConfigureLeaf(Transform doorLeaf, Quaternion closedRotation, Quaternion openRotation)
         {
             leaf = doorLeaf;
@@ -50,6 +48,7 @@ namespace Portals
 
         void Apply()
         {
+            // MaterialPropertyBlock: cambia el valor solo en este objeto, sin tocar el material.
             if (m_block == null) m_block = new MaterialPropertyBlock();
             var target = Surface;
             target.GetPropertyBlock(m_block);

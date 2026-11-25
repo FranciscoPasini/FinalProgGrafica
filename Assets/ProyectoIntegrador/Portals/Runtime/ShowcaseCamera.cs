@@ -2,10 +2,7 @@ using UnityEngine;
 
 namespace Portals
 {
-    /// <summary>
-    /// Cámara de presentación (nada jugable): viaja suave hasta el foco elegido y se balancea de lado a lado
-    /// para que se note la profundidad a través de los portales.
-    /// </summary>
+    // Cámara de presentación: va al foco elegido y se balancea para que se note la profundidad.
     public class ShowcaseCamera : MonoBehaviour
     {
         [Tooltip("Puntos de vista. 0 = vista general, luego uno por portal.")]
@@ -26,7 +23,6 @@ namespace Portals
         public int CurrentFocus => m_currentFocus;
         public int FocusCount => focusPoints.Length;
 
-        /// <summary>Configura los focos por código (usado por el armado de la escena y los tests).</summary>
         public void Configure(Transform[] points, float swayAmplitude)
         {
             focusPoints = points;
@@ -58,7 +54,7 @@ namespace Portals
             float sway = Mathf.Sin(m_swayTime * 2f * Mathf.PI / swayPeriod) * swayAmplitude;
             Vector3 goal = target.position + target.right * sway;
 
-            // Suavizado exponencial: llega en ~transitionTime sin depender de los FPS.
+            // Suavizado exponencial: el movimiento no depende de los FPS.
             float k = 1f - Mathf.Exp(-deltaTime * 4f / transitionTime);
             transform.position = Vector3.Lerp(transform.position, goal, k);
             transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, k);

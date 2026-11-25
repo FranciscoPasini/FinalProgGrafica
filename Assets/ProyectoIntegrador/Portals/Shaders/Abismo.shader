@@ -103,14 +103,14 @@ Shader "Portales/Abismo"
 			uniform float _EdgeWidth;
 			uniform float _Opening;
 			uniform float4 _EdgeColor;
-					float2 voronoihash24_g2( float2 p )
+					float2 voronoihash26_g2( float2 p )
 					{
 						
 						p = float2( dot( p, float2( 127.1, 311.7 ) ), dot( p, float2( 269.5, 183.3 ) ) );
 						return frac( sin( p ) *43758.5453);
 					}
 			
-					float voronoi24_g2( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
+					float voronoi26_g2( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
 					{
 						float2 n = floor( v );
 						float2 f = frac( v );
@@ -121,7 +121,7 @@ Shader "Portales/Abismo"
 							for ( int i = -1; i <= 1; i++ )
 						 	{
 						 		float2 g = float2( i, j );
-						 		float2 o = voronoihash24_g2( n + g );
+						 		float2 o = voronoihash26_g2( n + g );
 								o = ( sin( time + o * 6.2831 ) * 0.5 + 0.5 ); float2 r = f - g - o;
 								float d = 0.707 * sqrt(dot( r, r ));
 						 		if( d<F1 ) {
@@ -135,14 +135,14 @@ Shader "Portales/Abismo"
 						return F1;
 					}
 			
-					float2 voronoihash24_g3( float2 p )
+					float2 voronoihash26_g3( float2 p )
 					{
 						
 						p = float2( dot( p, float2( 127.1, 311.7 ) ), dot( p, float2( 269.5, 183.3 ) ) );
 						return frac( sin( p ) *43758.5453);
 					}
 			
-					float voronoi24_g3( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
+					float voronoi26_g3( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
 					{
 						float2 n = floor( v );
 						float2 f = frac( v );
@@ -153,7 +153,7 @@ Shader "Portales/Abismo"
 							for ( int i = -1; i <= 1; i++ )
 						 	{
 						 		float2 g = float2( i, j );
-						 		float2 o = voronoihash24_g3( n + g );
+						 		float2 o = voronoihash26_g3( n + g );
 								o = ( sin( time + o * 6.2831 ) * 0.5 + 0.5 ); float2 r = f - g - o;
 								float d = 0.707 * sqrt(dot( r, r ));
 						 		if( d<F1 ) {
@@ -167,14 +167,14 @@ Shader "Portales/Abismo"
 						return F1;
 					}
 			
-					float2 voronoihash24_g4( float2 p )
+					float2 voronoihash26_g4( float2 p )
 					{
 						
 						p = float2( dot( p, float2( 127.1, 311.7 ) ), dot( p, float2( 269.5, 183.3 ) ) );
 						return frac( sin( p ) *43758.5453);
 					}
 			
-					float voronoi24_g4( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
+					float voronoi26_g4( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
 					{
 						float2 n = floor( v );
 						float2 f = frac( v );
@@ -185,7 +185,7 @@ Shader "Portales/Abismo"
 							for ( int i = -1; i <= 1; i++ )
 						 	{
 						 		float2 g = float2( i, j );
-						 		float2 o = voronoihash24_g4( n + g );
+						 		float2 o = voronoihash26_g4( n + g );
 								o = ( sin( time + o * 6.2831 ) * 0.5 + 0.5 ); float2 r = f - g - o;
 								float d = 0.707 * sqrt(dot( r, r ));
 						 		if( d<F1 ) {
@@ -199,14 +199,14 @@ Shader "Portales/Abismo"
 						return F1;
 					}
 			
-					float2 voronoihash24_g5( float2 p )
+					float2 voronoihash26_g5( float2 p )
 					{
 						
 						p = float2( dot( p, float2( 127.1, 311.7 ) ), dot( p, float2( 269.5, 183.3 ) ) );
 						return frac( sin( p ) *43758.5453);
 					}
 			
-					float voronoi24_g5( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
+					float voronoi26_g5( float2 v, float time, inout float2 id, inout float2 mr, float smoothness )
 					{
 						float2 n = floor( v );
 						float2 f = frac( v );
@@ -217,7 +217,7 @@ Shader "Portales/Abismo"
 							for ( int i = -1; i <= 1; i++ )
 						 	{
 						 		float2 g = float2( i, j );
-						 		float2 o = voronoihash24_g5( n + g );
+						 		float2 o = voronoihash26_g5( n + g );
 								o = ( sin( time + o * 6.2831 ) * 0.5 + 0.5 ); float2 r = f - g - o;
 								float d = 0.707 * sqrt(dot( r, r ));
 						 		if( d<F1 ) {
@@ -310,7 +310,7 @@ Shader "Portales/Abismo"
 				float3 WorldPosition = i.worldPos;
 				#endif
 				float temp_output_3_0_g2 = 1.0;
-				float time24_g2 = 0.0;
+				float time26_g2 = 0.0;
 				float3 ase_worldTangent = i.ase_texcoord2.xyz;
 				float3 ase_worldNormal = i.ase_texcoord3.xyz;
 				float3 ase_worldBitangent = i.ase_texcoord4.xyz;
@@ -322,86 +322,86 @@ Shader "Portales/Abismo"
 				float3 ase_tanViewDir =  tanToWorld0 * ase_worldViewDir.x + tanToWorld1 * ase_worldViewDir.y  + tanToWorld2 * ase_worldViewDir.z;
 				ase_tanViewDir = normalize(ase_tanViewDir);
 				float3 temp_output_2_0_g2 = ase_tanViewDir;
-				float mulTime16_g2 = _Time.y * _SwirlSpeed;
-				float cos19_g2 = cos( ( mulTime16_g2 * ( temp_output_3_0_g2 * 0.3 ) ) );
-				float sin19_g2 = sin( ( mulTime16_g2 * ( temp_output_3_0_g2 * 0.3 ) ) );
-				float2 rotator19_g2 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g2).xy / max( (temp_output_2_0_g2).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g2 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos19_g2 , -sin19_g2 , sin19_g2 , cos19_g2 )) + float2( 0.5,0.5 );
-				float2 coords24_g2 = rotator19_g2 * ( _StarDensity * ( ( temp_output_3_0_g2 * 0.5 ) + 1.0 ) );
-				float2 id24_g2 = 0;
-				float2 uv24_g2 = 0;
-				float voroi24_g2 = voronoi24_g2( coords24_g2, time24_g2, id24_g2, uv24_g2, 0 );
+				float mulTime17_g2 = _Time.y * _SwirlSpeed;
+				float cos20_g2 = cos( ( mulTime17_g2 * ( temp_output_3_0_g2 * 0.3 ) ) );
+				float sin20_g2 = sin( ( mulTime17_g2 * ( temp_output_3_0_g2 * 0.3 ) ) );
+				float2 rotator20_g2 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g2).xy / max( (temp_output_2_0_g2).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g2 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos20_g2 , -sin20_g2 , sin20_g2 , cos20_g2 )) + float2( 0.5,0.5 );
+				float2 coords26_g2 = rotator20_g2 * ( _StarDensity * ( ( temp_output_3_0_g2 * 0.5 ) + 1.0 ) );
+				float2 id26_g2 = 0;
+				float2 uv26_g2 = 0;
+				float voroi26_g2 = voronoi26_g2( coords26_g2, time26_g2, id26_g2, uv26_g2, 0 );
 				float temp_output_3_0_g3 = 2.0;
-				float time24_g3 = 0.0;
+				float time26_g3 = 0.0;
 				float3 temp_output_2_0_g3 = ase_tanViewDir;
-				float mulTime16_g3 = _Time.y * _SwirlSpeed;
-				float cos19_g3 = cos( ( mulTime16_g3 * ( temp_output_3_0_g3 * 0.3 ) ) );
-				float sin19_g3 = sin( ( mulTime16_g3 * ( temp_output_3_0_g3 * 0.3 ) ) );
-				float2 rotator19_g3 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g3).xy / max( (temp_output_2_0_g3).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g3 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos19_g3 , -sin19_g3 , sin19_g3 , cos19_g3 )) + float2( 0.5,0.5 );
-				float2 coords24_g3 = rotator19_g3 * ( _StarDensity * ( ( temp_output_3_0_g3 * 0.5 ) + 1.0 ) );
-				float2 id24_g3 = 0;
-				float2 uv24_g3 = 0;
-				float voroi24_g3 = voronoi24_g3( coords24_g3, time24_g3, id24_g3, uv24_g3, 0 );
+				float mulTime17_g3 = _Time.y * _SwirlSpeed;
+				float cos20_g3 = cos( ( mulTime17_g3 * ( temp_output_3_0_g3 * 0.3 ) ) );
+				float sin20_g3 = sin( ( mulTime17_g3 * ( temp_output_3_0_g3 * 0.3 ) ) );
+				float2 rotator20_g3 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g3).xy / max( (temp_output_2_0_g3).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g3 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos20_g3 , -sin20_g3 , sin20_g3 , cos20_g3 )) + float2( 0.5,0.5 );
+				float2 coords26_g3 = rotator20_g3 * ( _StarDensity * ( ( temp_output_3_0_g3 * 0.5 ) + 1.0 ) );
+				float2 id26_g3 = 0;
+				float2 uv26_g3 = 0;
+				float voroi26_g3 = voronoi26_g3( coords26_g3, time26_g3, id26_g3, uv26_g3, 0 );
 				float temp_output_3_0_g4 = 3.0;
-				float time24_g4 = 0.0;
+				float time26_g4 = 0.0;
 				float3 temp_output_2_0_g4 = ase_tanViewDir;
-				float mulTime16_g4 = _Time.y * _SwirlSpeed;
-				float cos19_g4 = cos( ( mulTime16_g4 * ( temp_output_3_0_g4 * 0.3 ) ) );
-				float sin19_g4 = sin( ( mulTime16_g4 * ( temp_output_3_0_g4 * 0.3 ) ) );
-				float2 rotator19_g4 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g4).xy / max( (temp_output_2_0_g4).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g4 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos19_g4 , -sin19_g4 , sin19_g4 , cos19_g4 )) + float2( 0.5,0.5 );
-				float2 coords24_g4 = rotator19_g4 * ( _StarDensity * ( ( temp_output_3_0_g4 * 0.5 ) + 1.0 ) );
-				float2 id24_g4 = 0;
-				float2 uv24_g4 = 0;
-				float voroi24_g4 = voronoi24_g4( coords24_g4, time24_g4, id24_g4, uv24_g4, 0 );
+				float mulTime17_g4 = _Time.y * _SwirlSpeed;
+				float cos20_g4 = cos( ( mulTime17_g4 * ( temp_output_3_0_g4 * 0.3 ) ) );
+				float sin20_g4 = sin( ( mulTime17_g4 * ( temp_output_3_0_g4 * 0.3 ) ) );
+				float2 rotator20_g4 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g4).xy / max( (temp_output_2_0_g4).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g4 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos20_g4 , -sin20_g4 , sin20_g4 , cos20_g4 )) + float2( 0.5,0.5 );
+				float2 coords26_g4 = rotator20_g4 * ( _StarDensity * ( ( temp_output_3_0_g4 * 0.5 ) + 1.0 ) );
+				float2 id26_g4 = 0;
+				float2 uv26_g4 = 0;
+				float voroi26_g4 = voronoi26_g4( coords26_g4, time26_g4, id26_g4, uv26_g4, 0 );
 				float temp_output_3_0_g5 = 4.0;
-				float time24_g5 = 0.0;
+				float time26_g5 = 0.0;
 				float3 temp_output_2_0_g5 = ase_tanViewDir;
-				float mulTime16_g5 = _Time.y * _SwirlSpeed;
-				float cos19_g5 = cos( ( mulTime16_g5 * ( temp_output_3_0_g5 * 0.3 ) ) );
-				float sin19_g5 = sin( ( mulTime16_g5 * ( temp_output_3_0_g5 * 0.3 ) ) );
-				float2 rotator19_g5 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g5).xy / max( (temp_output_2_0_g5).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g5 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos19_g5 , -sin19_g5 , sin19_g5 , cos19_g5 )) + float2( 0.5,0.5 );
-				float2 coords24_g5 = rotator19_g5 * ( _StarDensity * ( ( temp_output_3_0_g5 * 0.5 ) + 1.0 ) );
-				float2 id24_g5 = 0;
-				float2 uv24_g5 = 0;
-				float voroi24_g5 = voronoi24_g5( coords24_g5, time24_g5, id24_g5, uv24_g5, 0 );
-				float mulTime59 = _Time.y * _TwinkleSpeed;
-				float simplePerlin2D61 = snoise( ( ( i.ase_texcoord1.xy * float2( 20,20 ) ) + mulTime59 ) );
-				simplePerlin2D61 = simplePerlin2D61*0.5 + 0.5;
-				float2 break31 = ( i.ase_texcoord1.xy - float2( 0.5,0.5 ) );
+				float mulTime17_g5 = _Time.y * _SwirlSpeed;
+				float cos20_g5 = cos( ( mulTime17_g5 * ( temp_output_3_0_g5 * 0.3 ) ) );
+				float sin20_g5 = sin( ( mulTime17_g5 * ( temp_output_3_0_g5 * 0.3 ) ) );
+				float2 rotator20_g5 = mul( ( i.ase_texcoord1.xy - ( ( (temp_output_2_0_g5).xy / max( (temp_output_2_0_g5).z , 0.2 ) ) * ( _Depth * temp_output_3_0_g5 ) ) ) - float2( 0.5,0.5 ) , float2x2( cos20_g5 , -sin20_g5 , sin20_g5 , cos20_g5 )) + float2( 0.5,0.5 );
+				float2 coords26_g5 = rotator20_g5 * ( _StarDensity * ( ( temp_output_3_0_g5 * 0.5 ) + 1.0 ) );
+				float2 id26_g5 = 0;
+				float2 uv26_g5 = 0;
+				float voroi26_g5 = voronoi26_g5( coords26_g5, time26_g5, id26_g5, uv26_g5, 0 );
+				float mulTime63 = _Time.y * _TwinkleSpeed;
+				float simplePerlin2D65 = snoise( ( ( i.ase_texcoord1.xy * float2( 20,20 ) ) + mulTime63 ) );
+				simplePerlin2D65 = simplePerlin2D65*0.5 + 0.5;
+				float2 break34 = ( i.ase_texcoord1.xy - float2( 0.5,0.5 ) );
 				float2 temp_output_1_0_g1 = i.ase_texcoord1.xy;
 				float2 temp_output_6_0_g1 = ( temp_output_1_0_g1 - float2( 0.5,0.5 ) );
 				float2 break8_g1 = abs( temp_output_6_0_g1 );
 				float temp_output_10_0_g1 = ( max( break8_g1.x , break8_g1.y ) * 2.0 );
-				float temp_output_19_38 = temp_output_10_0_g1;
-				float mulTime34 = _Time.y * _SwirlSpeed;
-				float temp_output_36_0 = ( ( atan2( break31.y , break31.x ) + ( temp_output_19_38 * _SwirlTwist ) ) - mulTime34 );
-				float2 appendResult39 = (float2(cos( temp_output_36_0 ) , sin( temp_output_36_0 )));
-				float2 temp_output_40_0 = ( appendResult39 * temp_output_19_38 );
-				float simplePerlin2D43 = snoise( ( temp_output_40_0 * float2( 3,3 ) ) );
-				simplePerlin2D43 = simplePerlin2D43*0.5 + 0.5;
-				float simplePerlin2D44 = snoise( ( temp_output_40_0 * float2( 6,6 ) ) );
-				simplePerlin2D44 = simplePerlin2D44*0.5 + 0.5;
-				float temp_output_47_0 = ( ( simplePerlin2D43 * 0.6 ) + ( simplePerlin2D44 * 0.4 ) );
-				float4 lerpResult52 = lerp( _ColorA , _ColorB , temp_output_47_0);
-				float mulTime48 = _Time.y * _PaletteSpeed;
-				float4 lerpResult53 = lerp( lerpResult52 , _ColorC , ( ( sin( mulTime48 ) * 0.5 ) + 0.5 ));
-				float smoothstepResult54 = smoothstep( 0.0 , 0.6 , temp_output_19_38);
-				float mulTime14_g1 = _Time.y * _NoiseSpeed;
-				float simplePerlin2D17_g1 = snoise( ( ( temp_output_1_0_g1 * _NoiseScale ) + mulTime14_g1 ) );
-				simplePerlin2D17_g1 = simplePerlin2D17_g1*0.5 + 0.5;
+				float temp_output_20_41 = temp_output_10_0_g1;
+				float mulTime37 = _Time.y * _SwirlSpeed;
+				float temp_output_39_0 = ( ( atan2( break34.y , break34.x ) + ( temp_output_20_41 * _SwirlTwist ) ) - mulTime37 );
+				float2 appendResult42 = (float2(cos( temp_output_39_0 ) , sin( temp_output_39_0 )));
+				float2 temp_output_43_0 = ( appendResult42 * temp_output_20_41 );
+				float simplePerlin2D46 = snoise( ( temp_output_43_0 * float2( 3,3 ) ) );
+				simplePerlin2D46 = simplePerlin2D46*0.5 + 0.5;
+				float simplePerlin2D47 = snoise( ( temp_output_43_0 * float2( 6,6 ) ) );
+				simplePerlin2D47 = simplePerlin2D47*0.5 + 0.5;
+				float temp_output_50_0 = ( ( simplePerlin2D46 * 0.6 ) + ( simplePerlin2D47 * 0.4 ) );
+				float4 lerpResult55 = lerp( _ColorA , _ColorB , temp_output_50_0);
+				float mulTime51 = _Time.y * _PaletteSpeed;
+				float4 lerpResult56 = lerp( lerpResult55 , _ColorC , ( ( sin( mulTime51 ) * 0.5 ) + 0.5 ));
+				float smoothstepResult57 = smoothstep( 0.0 , 0.6 , temp_output_20_41);
+				float mulTime15_g1 = _Time.y * _NoiseSpeed;
+				float simplePerlin2D18_g1 = snoise( ( ( temp_output_1_0_g1 * _NoiseScale ) + mulTime15_g1 ) );
+				simplePerlin2D18_g1 = simplePerlin2D18_g1*0.5 + 0.5;
 				float temp_output_3_0_g1 = _EdgeWidth;
-				float temp_output_20_0_g1 = ( temp_output_10_0_g1 + ( ( simplePerlin2D17_g1 - 0.5 ) * temp_output_3_0_g1 ) );
+				float temp_output_21_0_g1 = ( temp_output_10_0_g1 + ( ( simplePerlin2D18_g1 - 0.5 ) * temp_output_3_0_g1 ) );
 				float temp_output_2_0_g1 = _Opening;
-				float temp_output_23_0_g1 = ( temp_output_2_0_g1 * ( 1.0 - temp_output_3_0_g1 ) );
-				float temp_output_25_0_g1 = ( temp_output_23_0_g1 + ( temp_output_3_0_g1 * 0.5 ) );
-				float temp_output_33_0_g1 = saturate( ( temp_output_2_0_g1 * 20.0 ) );
-				float temp_output_19_0 = ( step( temp_output_20_0_g1 , temp_output_25_0_g1 ) * temp_output_33_0_g1 );
-				float smoothstepResult28_g1 = smoothstep( ( temp_output_23_0_g1 - temp_output_3_0_g1 ) , temp_output_23_0_g1 , temp_output_20_0_g1);
-				float smoothstepResult29_g1 = smoothstep( temp_output_23_0_g1 , temp_output_25_0_g1 , temp_output_20_0_g1);
-				float temp_output_19_37 = ( ( smoothstepResult28_g1 * ( 1.0 - smoothstepResult29_g1 ) ) * temp_output_33_0_g1 );
-				clip( ( temp_output_19_0 + temp_output_19_37 ) - 0.5);
+				float temp_output_25_0_g1 = ( temp_output_2_0_g1 * ( 1.0 - temp_output_3_0_g1 ) );
+				float temp_output_27_0_g1 = ( temp_output_25_0_g1 + ( temp_output_3_0_g1 * 0.5 ) );
+				float temp_output_35_0_g1 = saturate( ( temp_output_2_0_g1 * 20.0 ) );
+				float temp_output_20_0 = ( step( temp_output_21_0_g1 , temp_output_27_0_g1 ) * temp_output_35_0_g1 );
+				float smoothstepResult30_g1 = smoothstep( ( temp_output_25_0_g1 - temp_output_3_0_g1 ) , temp_output_25_0_g1 , temp_output_21_0_g1);
+				float smoothstepResult31_g1 = smoothstep( temp_output_25_0_g1 , temp_output_27_0_g1 , temp_output_21_0_g1);
+				float temp_output_20_40 = ( ( smoothstepResult30_g1 * ( 1.0 - smoothstepResult31_g1 ) ) * temp_output_35_0_g1 );
+				clip( ( temp_output_20_0 + temp_output_20_40 ) - 0.5);
 				
 				
-				finalColor = ( ( ( float4( ( ( ( ( ( ( pow( saturate( ( 1.0 - ( voroi24_g2 * 3.0 ) ) ) , 18.0 ) * _ColorA.rgb ) / temp_output_3_0_g2 ) + ( ( pow( saturate( ( 1.0 - ( voroi24_g3 * 3.0 ) ) ) , 18.0 ) * _ColorB.rgb ) / temp_output_3_0_g3 ) ) + ( ( ( pow( saturate( ( 1.0 - ( voroi24_g4 * 3.0 ) ) ) , 18.0 ) * _ColorC.rgb ) / temp_output_3_0_g4 ) + ( ( pow( saturate( ( 1.0 - ( voroi24_g5 * 3.0 ) ) ) , 18.0 ) * _ColorA.rgb ) / temp_output_3_0_g5 ) ) ) * ( ( 1.0 - _TwinkleAmount ) + ( simplePerlin2D61 * _TwinkleAmount ) ) ) * _LayerIntensity ) , 0.0 ) + ( ( lerpResult53 * temp_output_47_0 ) * smoothstepResult54 ) ) * temp_output_19_0 ) + ( temp_output_19_37 * _EdgeColor ) );
+				finalColor = ( ( ( float4( ( ( ( ( ( ( pow( saturate( ( 1.0 - ( voroi26_g2 * 3.0 ) ) ) , 18.0 ) * _ColorA.rgb ) / temp_output_3_0_g2 ) + ( ( pow( saturate( ( 1.0 - ( voroi26_g3 * 3.0 ) ) ) , 18.0 ) * _ColorB.rgb ) / temp_output_3_0_g3 ) ) + ( ( ( pow( saturate( ( 1.0 - ( voroi26_g4 * 3.0 ) ) ) , 18.0 ) * _ColorC.rgb ) / temp_output_3_0_g4 ) + ( ( pow( saturate( ( 1.0 - ( voroi26_g5 * 3.0 ) ) ) , 18.0 ) * _ColorA.rgb ) / temp_output_3_0_g5 ) ) ) * ( ( 1.0 - _TwinkleAmount ) + ( simplePerlin2D65 * _TwinkleAmount ) ) ) * _LayerIntensity ) , 0.0 ) + ( ( lerpResult56 * temp_output_50_0 ) * smoothstepResult57 ) ) * temp_output_20_0 ) + ( temp_output_20_40 * _EdgeColor ) );
 				return finalColor;
 			}
 			ENDCG
@@ -413,183 +413,189 @@ Shader "Portales/Abismo"
 }
 /*ASEBEGIN
 Version=18900
-0;21;1904;972;952;486;1;True;True
-Node;AmplifyShaderEditor.CommentaryNode;20;-4200,370;Inherit;False;700;330;Borde del portal;2;18;19;;0.95,0.55,0.25,1;0;0
-Node;AmplifyShaderEditor.CommentaryNode;57;-3560,760;Inherit;False;3930;750;Nebulosa en remolino;27;30;31;32;33;34;35;36;37;38;39;40;41;42;43;44;45;46;47;48;49;50;51;52;53;54;55;56;;0.65,0.35,0.9,1;0;0
-Node;AmplifyShaderEditor.CommentaryNode;17;-4840,-1430;Inherit;False;280;2225;Propiedades;16;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;;0.35,0.35,0.35,1;0;0
-Node;AmplifyShaderEditor.TexCoordVertexDataNode;18;-4160,450;Inherit;False;0;2;0;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleSubtractOpNode;30;-3520,840;Inherit;False;2;0;FLOAT2;0,0;False;1;FLOAT2;0.5,0.5;False;1;FLOAT2;0
+1928;25;1904;972;952;486;1;True;True
+Node;AmplifyShaderEditor.CommentaryNode;22;-4200,266;Inherit;False;700;434;Borde del portal;3;19;20;21;;0.95,0.55,0.25,1;0;0
+Node;AmplifyShaderEditor.CommentaryNode;61;-3560,760;Inherit;False;3930;871;Nebulosa en remolino;28;33;34;35;36;37;38;39;40;41;42;43;44;45;46;47;48;49;50;51;52;53;54;55;56;57;58;59;60;;0.65,0.35,0.9,1;0;0
+Node;AmplifyShaderEditor.TexCoordVertexDataNode;19;-4160,450;Inherit;False;0;2;0;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.CommentaryNode;18;-4840,-1534;Inherit;False;420;2329;Propiedades;17;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;;0.35,0.35,0.35,1;0;0
+Node;AmplifyShaderEditor.SimpleSubtractOpNode;33;-3520,961;Inherit;False;2;0;FLOAT2;0,0;False;1;FLOAT2;0.5,0.5;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.RangedFloatNode;13;-4800,375;Inherit;False;Property;_EdgeWidth;Ancho del borde;12;0;Create;True;0;0;0;False;0;False;0.08;0.08;0;0.5;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;14;-4800,480;Inherit;False;Property;_NoiseScale;Escala del ruido;13;0;Create;True;0;0;0;False;0;False;8;8;1;30;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;15;-4800,585;Inherit;False;Property;_NoiseSpeed;Velocidad del ruido;14;0;Create;True;0;0;0;False;0;False;0.35;0.35;0;2;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;16;-4800,690;Inherit;False;Property;_Opening;Apertura;15;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.BreakToComponentsNode;31;-3280,840;Inherit;False;FLOAT2;1;0;FLOAT2;0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15
-Node;AmplifyShaderEditor.FunctionNode;19;-3760,510;Inherit;False;SF_PortalEdge;-1;;1;d00f8f8ace7a76f4d9f8abb09eef879d;0;5;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;4;FLOAT;0;FLOAT;37;FLOAT;38;FLOAT2;39
+Node;AmplifyShaderEditor.BreakToComponentsNode;34;-3280,961;Inherit;False;FLOAT2;1;0;FLOAT2;0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15
+Node;AmplifyShaderEditor.FunctionNode;20;-3760,510;Inherit;False;SF_PortalEdge;-1;;1;d00f8f8ace7a76f4d9f8abb09eef879d;0;5;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;4;FLOAT;0;FLOAT;40;FLOAT;41;FLOAT2;42
 Node;AmplifyShaderEditor.RangedFloatNode;9;-4800,-180;Inherit;False;Property;_SwirlTwist;Torsión del remolino;8;0;Create;True;0;0;0;False;0;False;3;3;0;10;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;33;-3040,1035;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ATan2OpNode;32;-3040,840;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;36;-3040,1156;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ATan2OpNode;35;-3040,961;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;8;-4800,-285;Inherit;False;Property;_SwirlSpeed;Velocidad de giro;7;0;Create;True;0;0;0;False;0;False;0.2;0.2;0;2;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleTimeNode;34;-3040,1200;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;35;-2800,915;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleSubtractOpNode;36;-2560,975;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SinOpNode;38;-2320,1065;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.CosOpNode;37;-2320,885;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.DynamicAppendNode;39;-2080,975;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;40;-1840,975;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.CommentaryNode;65;-2360,1570;Inherit;False;1290;425;Parpadeo;7;58;59;60;61;62;63;64;;0.3,0.8,0.55,1;0;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;42;-1600,1095;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;6,6;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;41;-1600,885;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;3,3;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.RangedFloatNode;10;-4800,-75;Inherit;False;Property;_TwinkleSpeed;Velocidad de parpadeo;9;0;Create;True;0;0;0;False;0;False;3;3;0;10;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleTimeNode;37;-3040,1321;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;38;-2800,1036;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleSubtractOpNode;39;-2560,1096;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SinOpNode;41;-2320,1186;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.CosOpNode;40;-2320,1006;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.DynamicAppendNode;42;-2080,1096;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;43;-1840,1096;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.RangedFloatNode;4;-4800,-720;Inherit;False;Property;_PaletteSpeed;Velocidad de paleta;3;0;Create;True;0;0;0;False;0;False;0.15;0.15;0;2;0;1;FLOAT;0
-Node;AmplifyShaderEditor.NoiseGeneratorNode;43;-1360,885;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleTimeNode;59;-2320,1830;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleTimeNode;48;-1600,1305;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;58;-2320,1650;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;20,20;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.CommentaryNode;29;-3800,-1505;Inherit;False;1690;1214;Capas de estrellas (parallax);8;21;22;23;24;25;26;27;28;;0.95,0.8,0.3,1;0;0
-Node;AmplifyShaderEditor.NoiseGeneratorNode;44;-1360,1095;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;46;-1040,1095;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.4;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;2;-4800,-1140;Inherit;False;Property;_ColorB;Color B;1;0;Create;True;0;0;0;False;0;False;0.5,0.1,0.9,1;0.5,0.1,0.9,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.CommentaryNode;70;-2360,1691;Inherit;False;1290;529;Parpadeo;8;62;63;64;65;66;67;68;69;;0.3,0.8,0.55,1;0;0
+Node;AmplifyShaderEditor.RangedFloatNode;10;-4800,-75;Inherit;False;Property;_TwinkleSpeed;Velocidad de parpadeo;9;0;Create;True;0;0;0;False;0;False;3;3;0;10;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;45;-1600,1216;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;6,6;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;44;-1600,1006;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;3,3;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.CommentaryNode;32;-3800,-1626;Inherit;False;1690;1335;Capas de estrellas (parallax);9;23;24;25;26;27;28;29;30;31;;0.95,0.8,0.3,1;0;0
+Node;AmplifyShaderEditor.SimpleTimeNode;63;-2320,2055;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;62;-2320,1875;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;20,20;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.NoiseGeneratorNode;46;-1360,1006;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.NoiseGeneratorNode;47;-1360,1216;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleTimeNode;51;-1600,1426;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;1;-4800,-1350;Inherit;False;Property;_ColorA;Color A;0;0;Create;True;0;0;0;False;0;False;0.1,0.9,0.9,1;0.1,0.9,0.9,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;48;-1040,1006;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.6;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;2;-4800,-1140;Inherit;False;Property;_ColorB;Color B;1;0;Create;True;0;0;0;False;0;False;0.5,0.1,0.9,1;0.5,0.1,0.9,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;49;-1040,1216;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.4;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;3;-4800,-930;Inherit;False;Property;_ColorC;Color C;2;0;Create;True;0;0;0;False;0;False;1,0.2,0.7,1;1,0.2,0.7,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;5;-4800,-600;Inherit;False;Property;_Depth;Profundidad;4;0;Create;True;0;0;0;False;0;False;0.15;0.15;0;0.5;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;7;-4800,-390;Inherit;False;Property;_StarDensity;Densidad de estrellas;6;0;Create;True;0;0;0;False;0;False;12;12;3;60;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SinOpNode;49;-1360,1305;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;60;-2080,1710;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.ViewDirInputsCoordNode;21;-3760,-1200;Inherit;False;Tangent;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
-Node;AmplifyShaderEditor.ColorNode;3;-4800,-930;Inherit;False;Property;_ColorC;Color C;2;0;Create;True;0;0;0;False;0;False;1,0.2,0.7,1;1,0.2,0.7,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;45;-1040,885;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.6;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;47;-800,975;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;50;-1120,1305;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0
-Node;AmplifyShaderEditor.NoiseGeneratorNode;61;-1840,1710;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;64;-2080,1935;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.ViewDirInputsCoordNode;23;-3760,-1200;Inherit;False;Tangent;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.SinOpNode;52;-1360,1426;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.NoiseGeneratorNode;65;-1840,1935;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.FunctionNode;27;-3120,-525;Inherit;False;SF_StarLayer;-1;;5;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;4;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.FunctionNode;26;-3120,-825;Inherit;False;SF_StarLayer;-1;;4;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;3;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.FunctionNode;25;-3120,-1125;Inherit;False;SF_StarLayer;-1;;3;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;2;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.FunctionNode;24;-3120,-1425;Inherit;False;SF_StarLayer;-1;;2;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;1;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;11;-4800,30;Inherit;False;Property;_TwinkleAmount;Intensidad de parpadeo;10;0;Create;True;0;0;0;False;0;False;0.6;0.6;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;25;-3120,-525;Inherit;False;SF_StarLayer;-1;;5;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;4;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.FunctionNode;24;-3120,-825;Inherit;False;SF_StarLayer;-1;;4;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;3;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.FunctionNode;23;-3120,-1125;Inherit;False;SF_StarLayer;-1;;3;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;2;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.FunctionNode;22;-3120,-1425;Inherit;False;SF_StarLayer;-1;;2;261077d5c8865f14889ee19670049422;0;7;1;FLOAT2;0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;1;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;62;-1520,1710;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;27;-2560,-720;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;26;-2560,-1320;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;51;-880,1305;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0
-Node;AmplifyShaderEditor.LerpOp;52;-560,975;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.OneMinusNode;63;-1520,1890;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;64;-1280,1770;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.CommentaryNode;74;440,-830;Inherit;False;1498;1330;Composicion;8;66;67;68;69;70;71;72;73;;0.85,0.3,0.55,1;0;0
-Node;AmplifyShaderEditor.LerpOp;53;-320,1125;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;28;-2320,-1020;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;55;-80,1125;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SmoothstepOpNode;54;-560,1365;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0.6;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;50;-800,1096;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;53;-1120,1426;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;54;-880,1426;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0
+Node;AmplifyShaderEditor.LerpOp;55;-560,1096;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;28;-2560,-1320;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;29;-2560,-720;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;66;-1520,1935;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.OneMinusNode;67;-1520,2115;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;68;-1280,1995;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.CommentaryNode;80;440,-951;Inherit;False;1498;1451;Composicion;9;71;72;73;74;75;76;77;78;79;;0.85,0.3,0.55,1;0;0
+Node;AmplifyShaderEditor.LerpOp;56;-320,1246;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;30;-2320,-1020;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.SmoothstepOpNode;57;-560,1486;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0.6;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;58;-80,1246;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;6;-4800,-495;Inherit;False;Property;_LayerIntensity;Intensidad de capas;5;0;Create;True;0;0;0;False;0;False;1;1;0;3;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;66;480,-750;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;67;720,-690;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;56;160,1215;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;71;480,-750;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;59;160,1336;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;72;720,-690;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.ColorNode;12;-4800,165;Inherit;False;Property;_EdgeColor;Color del borde;11;0;Create;True;0;0;0;False;0;False;1.5,0.4,3,1;1.5,0.4,3,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;68;960,-300;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;69;1200,-150;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;70;960,375;Inherit;False;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;71;1440,75;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;72;1440,375;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ClipNode;73;1728,180;Inherit;False;3;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;0.5;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;73;960,-300;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;75;960,375;Inherit;False;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;74;1200,-150;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;77;1440,375;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;76;1440,75;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ClipNode;78;1728,180;Inherit;False;3;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;0.5;False;1;COLOR;0
+Node;AmplifyShaderEditor.StickyNoteNode;69;-2320,1771;Inherit;False;340;80;Parpadeo;;1,1,1,1;Ruido rápido que sube y baja el brillo de las estrellas.;0;0
+Node;AmplifyShaderEditor.StickyNoteNode;21;-4160,346;Inherit;False;340;80;Borde del portal;;1,1,1,1;La misma SF_PortalEdge que Umbral, así los dos portales comparten la forma del borde.;0;0
+Node;AmplifyShaderEditor.StickyNoteNode;31;-3760,-1546;Inherit;False;340;97;Capas de estrellas (parallax);;1,1,1,1;4 capas de SF_StarLayer con distinta profundidad y color. View Dir en espacio tangente da el parallax.;0;0
+Node;AmplifyShaderEditor.StickyNoteNode;79;480,-871;Inherit;False;340;97;Composicion;;1,1,1,1;(Estrellas · parpadeo + nebulosa) adentro de la máscara + borde HDR. Clip descarta lo de afuera.;0;0
+Node;AmplifyShaderEditor.StickyNoteNode;60;-3520,840;Inherit;False;340;97;Nebulosa en remolino;;1,1,1,1;Coordenadas polares con torsión y giro. Pasar por (cos, sin) evita la costura de atan2. Smoothstep oscurece el centro.;0;0
+Node;AmplifyShaderEditor.StickyNoteNode;17;-4800,-1454;Inherit;False;340;80;Propiedades;;1,1,1,1;Paleta, profundidad, densidad, giro y parpadeo. Todo es procedural: no usa texturas.;0;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;2048,0;Float;False;True;-1;2;ASEMaterialInspector;100;1;Portales/Abismo;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;0;1;False;-1;0;False;-1;0;1;False;-1;0;False;-1;True;0;False;-1;0;False;-1;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;True;0;False;-1;False;True;True;True;True;True;0;False;-1;False;False;False;False;False;False;False;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;True;1;False;-1;True;3;False;-1;True;True;0;False;-1;0;False;-1;True;1;RenderType=Opaque=RenderType;True;2;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=ForwardBase;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;1;True;False;;False;0
-WireConnection;30;0;18;0
-WireConnection;31;0;30;0
-WireConnection;19;1;18;0
-WireConnection;19;2;16;0
-WireConnection;19;3;13;0
-WireConnection;19;4;14;0
-WireConnection;19;5;15;0
-WireConnection;33;0;19;38
-WireConnection;33;1;9;0
-WireConnection;32;0;31;1
-WireConnection;32;1;31;0
-WireConnection;34;0;8;0
-WireConnection;35;0;32;0
-WireConnection;35;1;33;0
-WireConnection;36;0;35;0
-WireConnection;36;1;34;0
-WireConnection;38;0;36;0
-WireConnection;37;0;36;0
-WireConnection;39;0;37;0
-WireConnection;39;1;38;0
+WireConnection;33;0;19;0
+WireConnection;34;0;33;0
+WireConnection;20;1;19;0
+WireConnection;20;2;16;0
+WireConnection;20;3;13;0
+WireConnection;20;4;14;0
+WireConnection;20;5;15;0
+WireConnection;36;0;20;41
+WireConnection;36;1;9;0
+WireConnection;35;0;34;1
+WireConnection;35;1;34;0
+WireConnection;37;0;8;0
+WireConnection;38;0;35;0
+WireConnection;38;1;36;0
+WireConnection;39;0;38;0
+WireConnection;39;1;37;0
+WireConnection;41;0;39;0
 WireConnection;40;0;39;0
-WireConnection;40;1;19;38
 WireConnection;42;0;40;0
-WireConnection;41;0;40;0
-WireConnection;43;0;41;0
-WireConnection;59;0;10;0
-WireConnection;48;0;4;0
-WireConnection;58;0;18;0
-WireConnection;44;0;42;0
-WireConnection;46;0;44;0
-WireConnection;49;0;48;0
-WireConnection;60;0;58;0
-WireConnection;60;1;59;0
+WireConnection;42;1;41;0
+WireConnection;43;0;42;0
+WireConnection;43;1;20;41
 WireConnection;45;0;43;0
+WireConnection;44;0;43;0
+WireConnection;63;0;10;0
+WireConnection;62;0;19;0
+WireConnection;46;0;44;0
 WireConnection;47;0;45;0
-WireConnection;47;1;46;0
-WireConnection;50;0;49;0
-WireConnection;61;0;60;0
-WireConnection;25;1;18;0
-WireConnection;25;2;21;0
+WireConnection;51;0;4;0
+WireConnection;48;0;46;0
+WireConnection;49;0;47;0
+WireConnection;64;0;62;0
+WireConnection;64;1;63;0
+WireConnection;52;0;51;0
+WireConnection;65;0;64;0
+WireConnection;27;1;19;0
+WireConnection;27;2;23;0
+WireConnection;27;4;5;0
+WireConnection;27;5;7;0
+WireConnection;27;6;8;0
+WireConnection;27;7;1;0
+WireConnection;26;1;19;0
+WireConnection;26;2;23;0
+WireConnection;26;4;5;0
+WireConnection;26;5;7;0
+WireConnection;26;6;8;0
+WireConnection;26;7;3;0
+WireConnection;25;1;19;0
+WireConnection;25;2;23;0
 WireConnection;25;4;5;0
 WireConnection;25;5;7;0
 WireConnection;25;6;8;0
-WireConnection;25;7;1;0
-WireConnection;24;1;18;0
-WireConnection;24;2;21;0
+WireConnection;25;7;2;0
+WireConnection;24;1;19;0
+WireConnection;24;2;23;0
 WireConnection;24;4;5;0
 WireConnection;24;5;7;0
 WireConnection;24;6;8;0
-WireConnection;24;7;3;0
-WireConnection;23;1;18;0
-WireConnection;23;2;21;0
-WireConnection;23;4;5;0
-WireConnection;23;5;7;0
-WireConnection;23;6;8;0
-WireConnection;23;7;2;0
-WireConnection;22;1;18;0
-WireConnection;22;2;21;0
-WireConnection;22;4;5;0
-WireConnection;22;5;7;0
-WireConnection;22;6;8;0
-WireConnection;22;7;1;0
-WireConnection;62;0;61;0
-WireConnection;62;1;11;0
-WireConnection;27;0;24;0
-WireConnection;27;1;25;0
-WireConnection;26;0;22;0
-WireConnection;26;1;23;0
-WireConnection;51;0;50;0
-WireConnection;52;0;1;0
-WireConnection;52;1;2;0
-WireConnection;52;2;47;0
-WireConnection;63;0;11;0
-WireConnection;64;0;63;0
-WireConnection;64;1;62;0
+WireConnection;24;7;1;0
+WireConnection;50;0;48;0
+WireConnection;50;1;49;0
 WireConnection;53;0;52;0
-WireConnection;53;1;3;0
-WireConnection;53;2;51;0
-WireConnection;28;0;26;0
-WireConnection;28;1;27;0
-WireConnection;55;0;53;0
-WireConnection;55;1;47;0
-WireConnection;54;0;19;38
-WireConnection;66;0;28;0
-WireConnection;66;1;64;0
-WireConnection;67;0;66;0
-WireConnection;67;1;6;0
-WireConnection;56;0;55;0
-WireConnection;56;1;54;0
+WireConnection;54;0;53;0
+WireConnection;55;0;1;0
+WireConnection;55;1;2;0
+WireConnection;55;2;50;0
+WireConnection;28;0;24;0
+WireConnection;28;1;25;0
+WireConnection;29;0;26;0
+WireConnection;29;1;27;0
+WireConnection;66;0;65;0
+WireConnection;66;1;11;0
+WireConnection;67;0;11;0
 WireConnection;68;0;67;0
-WireConnection;68;1;56;0
-WireConnection;69;0;68;0
-WireConnection;69;1;19;0
-WireConnection;70;0;19;37
-WireConnection;70;1;12;0
-WireConnection;71;0;69;0
-WireConnection;71;1;70;0
-WireConnection;72;0;19;0
-WireConnection;72;1;19;37
-WireConnection;73;0;71;0
-WireConnection;73;1;72;0
-WireConnection;0;0;73;0
+WireConnection;68;1;66;0
+WireConnection;56;0;55;0
+WireConnection;56;1;3;0
+WireConnection;56;2;54;0
+WireConnection;30;0;28;0
+WireConnection;30;1;29;0
+WireConnection;57;0;20;41
+WireConnection;58;0;56;0
+WireConnection;58;1;50;0
+WireConnection;71;0;30;0
+WireConnection;71;1;68;0
+WireConnection;59;0;58;0
+WireConnection;59;1;57;0
+WireConnection;72;0;71;0
+WireConnection;72;1;6;0
+WireConnection;73;0;72;0
+WireConnection;73;1;59;0
+WireConnection;75;0;20;40
+WireConnection;75;1;12;0
+WireConnection;74;0;73;0
+WireConnection;74;1;20;0
+WireConnection;77;0;20;0
+WireConnection;77;1;20;40
+WireConnection;76;0;74;0
+WireConnection;76;1;75;0
+WireConnection;78;0;76;0
+WireConnection;78;1;77;0
+WireConnection;0;0;78;0
 ASEEND*/
-//CHKSM=F83EC64FDD17301E58337A6E934B2FEAD81769F3
+//CHKSM=905463A670A0F40EA02E44E6288956C7E6361E06

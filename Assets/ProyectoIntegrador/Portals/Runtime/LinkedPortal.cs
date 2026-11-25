@@ -3,13 +3,7 @@ using UnityEngine;
 
 namespace Portals
 {
-    /// <summary>
-    /// Portal enlazado (efecto "Umbral"). Cada cámara que mira este portal (la del juego, la vista Scene, etc.)
-    /// recibe su propia imagen: una cámara virtual se ubica del otro lado, con la misma posición relativa que
-    /// esa cámara tiene respecto de este portal, y renderiza lo que se vería al salir por el otro portal.
-    /// El shader muestra esa imagen en coordenadas de pantalla (_PortalView), así la perspectiva cambia al moverse.
-    /// El frente visible del portal es su -forward (como el Quad de Unity).
-    /// </summary>
+    // Portal enlazado (Umbral): una cámara virtual en el otro portal renderiza lo que se ve al salir por él.
     [ExecuteAlways]
     [DisallowMultipleComponent]
     public class LinkedPortal : MonoBehaviour
@@ -25,7 +19,6 @@ namespace Portals
         public const string PortalLayerName = "Portal";
         static readonly int PortalViewId = Shader.PropertyToID("_PortalView");
 
-        /// <summary>Cámaras virtuales de todos los portales: nunca renderizan portales (sin recursión).</summary>
         static readonly HashSet<Camera> s_virtualCameras = new HashSet<Camera>();
         static bool s_rendering;
 
@@ -59,21 +52,19 @@ namespace Portals
             }
         }
 
-        /// <summary>Enlaza los dos portales entre sí.</summary>
         public void Link(LinkedPortal other)
         {
             linkedPortal = other;
             if (other != null) other.linkedPortal = this;
         }
 
-        /// <summary>True para cámaras reales (juego, vista Scene); false para las cámaras virtuales de los portales.</summary>
         public bool ShouldRenderFor(Camera viewer)
         {
             if (viewer == null || s_rendering || s_virtualCameras.Contains(viewer)) return false;
             return viewer.cameraType == CameraType.Game || viewer.cameraType == CameraType.SceneView;
         }
 
-        /// <summary>Textura de la vista para una cámara; se recrea si esa cámara cambió de tamaño.</summary>
+        // Una textura por cámara; se recrea si cambia de tamaño.
         public RenderTexture GetViewTexture(Camera viewer, int width, int height)
         {
             width = Mathf.Max(1, width);
@@ -92,7 +83,6 @@ namespace Portals
             return texture;
         }
 
-        /// <summary>Pasa la textura al shader sin tocar el material compartido.</summary>
         public void ApplyToSurface(RenderTexture texture)
         {
             if (m_block == null) m_block = new MaterialPropertyBlock();
@@ -102,14 +92,13 @@ namespace Portals
             target.SetPropertyBlock(m_block);
         }
 
-        /// <summary>Unity lo llama por cada cámara que va a dibujar este portal, justo antes de dibujarlo.</summary>
+        // Se llama por cada cámara que va a dibujar el portal (juego, vista Scene, jugador).
         void OnWillRenderObject()
         {
             var viewer = Camera.current;
             if (ShouldRenderFor(viewer)) RenderView(viewer);
         }
 
-        /// <summary>La cámara virtual usa el mismo lente y fondo que la cámara que mira el portal.</summary>
         public void SyncCameraSettings(Camera viewer)
         {
             var cam = VirtualCamera;
@@ -122,7 +111,6 @@ namespace Portals
             cam.cullingMask = viewer.cullingMask & ~(1 << Mathf.Max(0, PortalLayer));
         }
 
-        /// <summary>Renderiza lo que esta cámara vería a través del portal y se lo pasa al shader.</summary>
         public void RenderView(Camera viewer)
         {
             if (linkedPortal == null) return;
@@ -133,7 +121,7 @@ namespace Portals
             SyncCameraSettings(viewer);
             cam.targetTexture = texture;
 
-            // Solo posición y rotación: la escala del quad no debe deformar la cámara.
+            // Sin la escala del quad, para no deformar la cámara.
             Matrix4x4 m = PortalMath.VirtualCameraMatrix(
                 viewer.transform.localToWorldMatrix,
                 Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one),
@@ -141,7 +129,7 @@ namespace Portals
                 halfTurn: viewMode == ViewMode.PortalClasico);
             cam.transform.SetPositionAndRotation(m.GetPosition(), m.rotation);
 
-            // Plano de recorte oblicuo en el portal de destino: lo que está detrás de él no tapa la vista.
+            // Recorte oblicuo: lo que está detrás del portal de destino no tapa la vista.
             Transform destination = linkedPortal.transform;
             float side = Mathf.Sign(Vector3.Dot(destination.forward, destination.position - cam.transform.position));
             Vector3 normal = destination.forward * side;

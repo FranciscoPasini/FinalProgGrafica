@@ -2,11 +2,7 @@ using UnityEngine;
 
 namespace Portals
 {
-    /// <summary>
-    /// Controles de la escena de portales:
-    ///   1 vista general · 2 Umbral · 3 Abismo · Espacio abrir/cerrar portales · H ayuda
-    /// (← / → para cambiar de escena los maneja PI_GameManager).
-    /// </summary>
+    // Teclas de la escena: 1, 2, 3 cambian de foco · Espacio abre/cierra los portales · H muestra la ayuda.
     public class PortalShowcaseController : MonoBehaviour
     {
         public const string HelpText = "1 Vista general · 2 Umbral · 3 Abismo · Espacio abrir/cerrar portales · H ayuda · ←/→ escena";
